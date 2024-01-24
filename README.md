@@ -1,4 +1,5 @@
-## Run
+## Running the application
+ Start the server
 - npm run test
   
 ## Representation
