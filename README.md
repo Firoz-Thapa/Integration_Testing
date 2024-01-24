@@ -1,5 +1,5 @@
 ## Running the application
- Start the server
+ Starting the server
 - npm run test
   
 ## Representation
