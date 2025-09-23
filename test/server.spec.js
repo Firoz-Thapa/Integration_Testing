@@ -1,7 +1,7 @@
 const expect = require("chai").expect;
-const request = require("request");
+const axios = require("axios");
 const app = require("../src/server.js");
-const converter = require("../src/converter.js"); // Import the converter module
+const converter = require("../src/converter.js");
 const port = 3000;
 
 describe("Color Code Converter API", () => {
@@ -18,21 +18,22 @@ describe("Color Code Converter API", () => {
         const url = `http://localhost:${port}/hex-to-rgb?hex=00ff00`;
 
         it("returns status 200", (done) => {
-            request(url, (error, response, body) => {
-                expect(response.statusCode).to.equal(200);
-                done();
-            });
+            axios.get(url)
+                .then(response => {
+                    expect(response.status).to.equal(200);
+                    done();
+                })
+                .catch(done);
         });
 
         it("returns the color in hex", (done) => {
-            request(url, (error, response, body) => {
-
-                const rgbColor = converter.hexToRgb("00ff00");
-
-
-                expect(JSON.parse(body)).to.deep.equal(rgbColor);
-                done();
-            });
+            axios.get(url)
+                .then(response => {
+                    const rgbColor = converter.hexToRgb("00ff00");
+                    expect(response.data).to.deep.equal(rgbColor);
+                    done();
+                })
+                .catch(done);
         });
     });
 
