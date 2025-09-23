@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "set NODE_ENV=test&& mocha",
-    "dev": "set NODE_ENV=dev&& node ./src/sever.js"
+    "dev": "set NODE_ENV=dev&& node ./src/server.js"
   },
   "keywords": [],
   "author": "",
