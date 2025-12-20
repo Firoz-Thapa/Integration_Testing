@@ -20,10 +20,6 @@ const isTestEnvironment = process.env.NODE_ENV === 'test';
 
 if (isTestEnvironment) {
     module.exports = app;
-}
-
-if (process.env.NODE_ENV === 'test') {
-    module.exports = app;
 } else {
     app.listen(port, () => console.log(`Server listening at http://localhost:${port}`));
 }
